@@ -1,25 +1,24 @@
-from setuptools import setup, find_packages
+import setuptools
 
-VERSION = '0.0.1'
-DESCRIPTION = 'a basic hello package'
-LONG_DESCRIPTION = 'a basic hello package long description'
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
-# Setting up
-setup(
-    name="hellopackage",
-    version=VERSION,
-    author="amirul",
-    author_email="amirul@gmail.com",
-    description=DESCRIPTION,
-    package_dir={"": "lib"},
-    packages=find_packages(),
-    install_requires=['pytest'],
+setuptools.setup(
+    name="example-package-YOUR-USERNAME-HERE",
+    version="0.0.1",
+    author="Example Author",
+    author_email="author@example.com",
+    description="A small example package",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/pypa/sampleproject",
     classifiers=[
-        "Development Status :: 1 - Planning",
-        "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Operating System :: Unix",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
-    ]
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    install_requires=['pytest'],
+    package_dir={"": "src"},
+    packages=setuptools.find_packages(where="src"),
+    python_requires=">=3.6",
 )
